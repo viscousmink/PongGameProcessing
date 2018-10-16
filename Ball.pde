@@ -14,14 +14,13 @@ class Ball {
      position = new PVector(screen.x/2,screen.y/2);
   }
   
-  void Move(PVector screen, PVector change) {
+  void Move() {
     position.x += velocity.x;
     position.y += velocity.y;
   }
   
   void bounce(PVector change) {
-     velocity.x = change.x;
-     velocity.y = change.y;
+    velocity.x = change.x;
+    velocity.y = change.y;
   }
-  
 }

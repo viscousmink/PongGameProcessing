@@ -22,6 +22,9 @@ void setup () {
 
 void draw() {
   frame += 1;
+  if(frame % 18 == 0) {
+    ai.determine(ball.getVelocity(), ball.getPosition(), Screen);
+  }
   if(frame % 60 == 0) {
     hasMovedPlayer = false; 
   }
@@ -30,10 +33,10 @@ void draw() {
   ellipse(ball.getPosition().x, ball.getPosition().y, 15, 15);
   rect(player.getPosition().x, player.getPosition().y, 15, 40);
   rect(ai.getPosition().x, ai.getPosition().y, 15, 40);
-  ball.Move(Screen, new PVector(0,0));
+  ball.Move();
   if(Collision() == true) {
     if(hasMovedPlayer) {
-      int y = 0;
+      float y = 0;
       if(lastMove == 1) {
         y = -1;
       }
